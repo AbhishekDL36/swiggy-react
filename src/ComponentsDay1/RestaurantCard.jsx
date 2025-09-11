@@ -2,7 +2,7 @@ import React from 'react'
 import { CDN_URL } from './constants'
 
 const RestaurantCard = ({resData}) => {
-  // console.log(resData)
+  console.log(resData)
     const {
     cloudinaryImageId,
     name,
@@ -11,10 +11,10 @@ const RestaurantCard = ({resData}) => {
     costForTwo,
 } = resData?.info
 
-const {deliveryTime} = resData?.info.sla
+const {deliveryTime} = resData?.info?.sla
   return (
     <div className='res-card'>
-      <img className='res-logo' src={CDN_URL+cloudinaryImageId} alt=""/>
+      <img className='res-logo' src={`${CDN_URL}${cloudinaryImageId}`} alt=""/>
 
       <div className='res-card-content'>
         <h3>{name}</h3>
