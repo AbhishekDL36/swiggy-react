@@ -1,30 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import {MENU_API,CDN_URL} from './constants'
+import {CDN_URL} from './utils/constants'
+import useRestaurantMenu from './utils/useRestaurantMenu';
+import ShimmerMenu from './ShimmerMenu';
 
 const RestaurantMenu = () => {
-    const [resInfo,setResInfo]=useState(null);
+    // const [resInfo,setResInfo]=useState(null);
     const {id} = useParams(); 
+    const resInfo = useRestaurantMenu(id);
+    console.log(resInfo)
     
     // console.log(id)
 
-    const fetchMenu = async()=>{
-      const data = await fetch(MENU_API+id);
-      const json = await data.json();
-      // console.log(json.data.cards);
-      // const resdetails = json?.data?.cards.find((e)=>{
-      //   return e?.card?.card?.info
-      // })
-      // console.log(json)
-      setResInfo(json.data.cards);
-    }
+    // const fetchMenu = async()=>{
+    //   const data = await fetch(MENU_API+id);
+    //   const json = await data.json();
+    //   // console.log(json.data.cards);
+    //   // const resdetails = json?.data?.cards.find((e)=>{
+    //   //   return e?.card?.card?.info
+    //   // })
+    //   setResInfo(json.data.cards);
+    // }
     // console.log(resInfo)
 
-    useEffect(()=>{
-      fetchMenu()
-    },[id]);
+    // useEffect(()=>{
+    //   fetchMenu()
+    // },[id]);
     
-if (resInfo === null) return <p>loading....</p>;
+if (resInfo === null) return <p>..loading</p>;
 
     const{
       name,cuisines,costForTwo,costForTwoMessage,cloudinaryImageId,avgRating
@@ -38,7 +41,7 @@ if (resInfo === null) return <p>loading....</p>;
    })
 
   //  console.log(groupedCard)
-   const {itemCards} = groupedCard?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+   const {itemCards} = groupedCard?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
    console.log(itemCards)
   return (

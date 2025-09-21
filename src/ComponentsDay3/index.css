@@ -104,10 +104,15 @@
 }
 
 .res-card-content .avg-rating,
+.res-card-content .item-price,
 .res-card-content .time {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.res-card-content h4 {
+  margin-top: 0;
 }
 
 .icons {
@@ -352,3 +357,29 @@
   background-position: center;
 }
 
+/* * About Page */
+.about-page {
+  margin-top: 100px;
+}
+
+.user-card {
+  padding: 10px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+.user-card img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.user-card h2,
+h3,
+h4 {
+  margin-top: 25px;
+}
