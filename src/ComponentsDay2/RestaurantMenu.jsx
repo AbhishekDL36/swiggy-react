@@ -23,6 +23,8 @@ const RestaurantMenu = () => {
     useEffect(()=>{
       fetchMenu()
     },[id]);
+
+    console.log(resInfo)
     
 if (resInfo === null) return <p>loading....</p>;
 
@@ -40,7 +42,7 @@ if (resInfo === null) return <p>loading....</p>;
   //  console.log(groupedCard)
    const {itemCards} = groupedCard?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
-   console.log(itemCards)
+  //  console.log(itemCards)
   return (
     <div className='menu'>
       <header className='menu-header'>
